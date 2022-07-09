@@ -1,0 +1,65 @@
+body {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.form-holder {
+  border: 5px solid purple;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 360px;
+  align-items: center;
+  position: relative;
+}
+h1 {
+  margin: 0;
+  padding: 20px 0 20px;
+  text-align: center;
+  font-size: 26px;
+}
+p {
+  font-weight: bold;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+input {
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+/* These two came from stackoverflow, I don't understand them but their purpose is to keep the styles the same when chrome autofills your shit */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px black inset;
+  -webkit-text-fill-color: white;
+}
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px black inset;
+  -webkit-text-fill-color: white;
+}
+
+.create-button {
+  background: purple;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  height: 30px;
+  width: 100%;
+  margin-top: 25px;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  text-align: center;
+}

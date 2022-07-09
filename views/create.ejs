@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/stylesheets/create.css" />
+    <script src="/public/javascripts/create.js"></script>
+    <title>Create Account - Bordle</title>
+  </head>
+  <body>
+    <div class="form-holder">
+      <h1>Create an Account</h1>
+      <form class="create-form" action="/create" method="POST">
+        <p>Email</p>
+        <input type="email" name="email" id = "email" value = "<%=locals.fields.email%>" required/>
+        <p>Username</p>
+        <input type="text" name="username" value = "<%=locals.fields.username%>" required/>
+        <p>Password</p>
+        <input type="password" name="password" required/>
+        <p>Confirm Password</p>
+        <input type="password" name="confirm" required/>
+        <input type = "submit"class="create-button" value= "Create Account"></button>
+      </form>
+      <% if (locals.err) { %>
+      <div class="error"><%=locals.msg%></div>
+      <% } %>
+    </div>
+  </body>
+</html>

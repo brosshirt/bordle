@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/stylesheets/login.css" />
+    <script src="/public/javascripts/login.js"></script>
+    <title>Login - Bordle</title>
+  </head>
+  <body>
+    <div class="login">
+      <h1>Login to Bordle</h1>
+      <form action="/login" method="POST">
+        <p>Username</p>
+        <input class = "form-input" type="text" name="username" value = "<%=locals.fields.username%>" placeholder="Username" />
+        <p>Password</p>
+        <input class = "form-input" type="password" name="password" value = "<%=locals.fields.password%>" placeholder="Password" />
+        <input type="submit" class="login-button" value="Login"></button>
+      </form>
+      <% if (locals.err) { %>
+      <div class="error"><%=locals.msg%></div>
+      <% } %>
+      <div class = "links">
+        <a class = "lost-pw">Lost your password?</a>
+        <br>
+        <a href = "/create" class = "create">Don't have an account?</a>
+      </div>
+    </div>
+  </body>
+</html>
