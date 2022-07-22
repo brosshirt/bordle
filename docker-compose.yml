@@ -1,0 +1,37 @@
+version: '3'
+
+# Define all services that make up the Bordle stack
+services:
+  # Bordle Node server
+  bordle:
+    # Use the Dockerfile in the current directory
+    build: .
+    container_name: bordle
+    restart: unless-stopped
+    labels:
+      # Enable reverse proxy on this service
+      - "traefik.enable=true"
+
+      # Tell reverse proxy to listen for requests for host bordle.gg
+      - "traefik.http.routers.bordle.rule=Host(`bordle.restiflix.com`)"
+
+      # Use TLS (HTTPS)
+      - "traefik.http.routers.bordle.tls=true"
+      - "traefik.http.routers.bordle.entrypoints=https"
+
+      # Get HTTPS certificate automatically using the resolver we
+      # set up in traefik.yml
+      - "traefik.http.routers.bordle.tls.certresolver=myresolver" 
+    
+  # Reverse Proxy to handle HTTPS connections
+  # HTTPS Request -> Rev. Proxy -> HTTP request -> Bordle
+  reverse_proxy:
+    image: traefik
+    container_name: reverse_proxy
+    restart: unless-stopped
+    ports:
+      - 443:443  # HTTPS
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/etc/traefik/traefik.yml
+      - ./secrets/acme:/acme

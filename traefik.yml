@@ -1,0 +1,16 @@
+---
+
+providers:
+  docker:
+    exposedbydefault: false
+
+entrypoints:
+  https:
+    address: :443
+
+certificatesresolvers:
+  myresolver:
+    acme:
+      tlschallenge: true
+      email: brosshirt@gmail.com
+      storage: /acme/acme.json
