@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/public/stylesheets/create.css" />
-    <script src="/public/javascripts/create.js"></script>
+    <link rel="stylesheet" href="stylesheets/create.css" />
+    <script></script>
     <title>Create Account - Bordle</title>
   </head>
   <body>
@@ -21,9 +21,7 @@
         <input type="password" name="confirm" required/>
         <input type = "submit"class="create-button" value= "Create Account"></button>
       </form>
-      <% if (locals.err) { %>
       <div class="error"><%=locals.msg%></div>
-      <% } %>
     </div>
   </body>
 </html>

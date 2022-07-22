@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/public/stylesheets/login.css" />
-    <script src="/public/javascripts/login.js"></script>
+    <link rel="stylesheet" href="stylesheets/login.css" />
+    <script></script>
     <title>Login - Bordle</title>
   </head>
   <body>
@@ -17,9 +17,7 @@
         <input class = "form-input" type="password" name="password" value = "<%=locals.fields.password%>" placeholder="Password" />
         <input type="submit" class="login-button" value="Login"></button>
       </form>
-      <% if (locals.err) { %>
       <div class="error"><%=locals.msg%></div>
-      <% } %>
       <div class = "links">
         <a class = "lost-pw">Lost your password?</a>
         <br>

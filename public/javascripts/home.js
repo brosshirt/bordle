@@ -11,305 +11,64 @@ let wordList = ["cigar", "rebut", "sissy", "humph", "awake", "blush", "focal", "
 "stems", "stend", "steno", "stens", "stent", "steps", "stept", "stere", "stets", "stews", "stewy", "steys", "stich", "stied", "sties", "stilb", "stile", "stime", "stims", "stimy", "stipa", "stipe", "stire", "stirk", "stirp", "stirs", "stive", "stivy", "stoae", "stoai", "stoas", "stoat", "stobs", "stoep", "stogy", "stoit", "stoln", "stoma", "stond", "stong", "stonk", "stonn", "stook", "stoor", "stope", "stops", "stopt", "stoss", "stots", "stott", "stoun", "stoup", "stour", "stown", "stowp", "stows", "strad", "strae", "strag", "strak", "strep", "strew", "stria", "strig", "strim", "strop", "strow", "stroy", "strum", "stubs", "stude", "studs", "stull", "stulm", "stumm", "stums", "stuns", "stupa", "stupe", "sture", "sturt", "styed", "styes", "styli", "stylo", "styme", "stymy", "styre", "styte", "subah", "subas", "subby", "suber", "subha", "succi", "sucks", "sucky", "sucre", "sudds", "sudor", "sudsy", "suede", "suent", "suers", "suete", "suets", "suety", "sugan", "sughs", "sugos", "suhur", "suids", "suint", "suits", "sujee", "sukhs", "sukuk", "sulci", "sulfa", "sulfo", "sulks", "sulph", "sulus", "sumis", "summa", "sumos", "sumph", "sumps", "sunis", "sunks", "sunna", "sunns", "sunup", "supes", "supra", "surah", "sural", "suras", "surat", "surds", "sured", "sures", "surfs", "surfy", "surgy", "surra", "sused", "suses", "susus", "sutor", "sutra", "sutta", "swabs", "swack", "swads", "swage", "swags", "swail", "swain", "swale", "swaly", "swamy", "swang", "swank", "swans", "swaps", "swapt", "sward", "sware", "swarf", "swart", "swats", "swayl", "sways", "sweal", "swede", "sweed", "sweel", "sweer", "swees", "sweir", "swelt", "swerf", "sweys", "swies", "swigs", "swile", "swims", "swink", "swipe", "swire", "swiss", "swith", "swits", "swive", "swizz", "swobs", "swole", "swoln", "swops", "swopt", "swots", "swoun", "sybbe", "sybil", "syboe", "sybow", "sycee", "syces", "sycon", "syens", "syker", "sykes", "sylis", "sylph", "sylva", "symar", "synch", "syncs", "synds", "syned", "synes", "synth", "syped", "sypes", "syphs", "syrah", "syren", "sysop", "sythe", "syver", "taals", "taata", "taber", "tabes", "tabid", "tabis", "tabla", "tabor", "tabun", "tabus", "tacan", "taces", "tacet", "tache", "tacho", "tachs", "tacks", "tacos", "tacts", "taels", "tafia", "taggy", "tagma", "tahas", "tahrs", "taiga", "taigs", "taiko", "tails", "tains", "taira", "taish", "taits", "tajes", "takas", "takes", "takhi", "takin", "takis", "takky", "talak", "talaq", "talar", "talas", "talcs", "talcy", "talea", "taler", "tales", "talks", "talky", "talls", "talma", "talpa", "taluk", "talus", "tamal", "tamed", "tames", "tamin", "tamis", "tammy", "tamps", "tanas", "tanga", "tangi", "tangs", "tanhs", "tanka", "tanks", "tanky", "tanna", "tansy", "tanti", "tanto", "tanty", "tapas", "taped", "tapen", "tapes", "tapet", "tapis", "tappa", "tapus", "taras", "tardo", "tared", "tares", "targa", "targe", "tarns", "taroc", "tarok", "taros", "tarps", "tarre", "tarry", "tarsi", "tarts", "tarty", "tasar", "tased", "taser", "tases", "tasks", "tassa", "tasse", "tasso", "tatar", "tater", "tates", "taths", "tatie", "tatou", "tatts", "tatus", "taube", "tauld", "tauon", "taupe", "tauts", "tavah", "tavas", "taver", "tawai", "tawas", "tawed", "tawer", "tawie", "tawse", "tawts", "taxed", "taxer", "taxes", "taxis", "taxol", "taxon", "taxor", "taxus", "tayra", "tazza", "tazze", "teade", "teads", "teaed", "teaks", "teals", "teams", "tears", "teats", "teaze", "techs", "techy", "tecta", "teels", "teems", "teend", "teene", "teens", "teeny", "teers", "teffs", "teggs", "tegua", "tegus", "tehrs", "teiid", "teils", "teind", "teins", "telae", "telco", "teles", "telex", "telia", "telic", "tells", "telly", "teloi", "telos", "temed", "temes", "tempi", "temps", "tempt", "temse", "tench", "tends", "tendu", "tenes", "tenge", "tenia", "tenne", "tenno", "tenny", "tenon", "tents", "tenty", "tenue", "tepal", "tepas", "tepoy", "terai", "teras", "terce", "terek", "teres", "terfe", "terfs", "terga", "terms", "terne", "terns", "terry", "terts", "tesla", "testa", "teste", "tests", "tetes", "teths", "tetra", "tetri", "teuch", "teugh", "tewed", "tewel", "tewit", "texas", "texes", "texts", "thack", "thagi", "thaim", "thale", "thali", "thana", "thane", "thang", "thans", "thanx", "tharm", "thars", "thaws", "thawy", "thebe", "theca", "theed", "theek", "thees", "thegn", "theic", "thein", "thelf", "thema", "thens", "theow", "therm", "thesp", "thete", "thews", "thewy", "thigs", "thilk", "thill", "thine", "thins", "thiol", "thirl", "thoft", "thole", "tholi", "thoro", "thorp", "thous", "thowl", "thrae", "thraw", "thrid", "thrip", "throe", "thuds", "thugs", "thuja", "thunk", "thurl", "thuya", "thymi", "thymy", "tians", "tiars", "tical", "ticca", "ticed", "tices", "tichy", "ticks", "ticky", "tiddy", "tided", "tides", "tiers", "tiffs", "tifos", "tifts", "tiges", "tigon", "tikas", "tikes", "tikis", "tikka", "tilak", "tiled", "tiler", "tiles", "tills", "tilly", "tilth", "tilts", "timbo", "timed", "times", "timon", "timps", "tinas", "tinct", "tinds", "tinea", "tined", "tines", "tinge", "tings", "tinks", "tinny", "tints", "tinty", "tipis", "tippy", "tired", "tires", "tirls", "tiros", "tirrs", "titch", "titer", "titis", "titre", "titty", "titup", "tiyin", "tiyns", "tizes", "tizzy", "toads", "toady", "toaze", "tocks", "tocky", "tocos", "todde", "toeas", "toffs", "toffy", "tofts", "tofus", "togae", "togas", "toged", "toges", "togue", "tohos", "toile", "toils", "toing", "toise", "toits", "tokay", "toked", "toker", "tokes", "tokos", "tolan", "tolar", "tolas", "toled", "toles", "tolls", "tolly", "tolts", "tolus", "tolyl", "toman", "tombs", "tomes", "tomia", "tommy", "tomos", "tondi", "tondo", "toned", "toner", "tones", "toney", "tongs", "tonka", "tonks", "tonne", "tonus", "tools", "tooms", "toons", "toots", "toped", "topee", "topek", "toper", "topes", "tophe", "tophi", "tophs", "topis", "topoi", "topos", "toppy", "toque", "torah", "toran", "toras", "torcs", "tores", "toric", "torii", "toros", "torot", "torrs", "torse", "torsi", "torsk", "torta", "torte", "torts", "tosas", "tosed", "toses", "toshy", "tossy", "toted", "toter", "totes", "totty", "touks", "touns", "tours", "touse", "tousy", "touts", "touze", "touzy", "towed", "towie", "towns", "towny", "towse", "towsy", "towts", "towze", "towzy", "toyed", "toyer", "toyon", "toyos", "tozed", "tozes", "tozie", "trabs", "trads", "tragi", "traik", "trams", "trank", "tranq", "trans", "trant", "trape", "traps", "trapt", "trass", "trats", "tratt", "trave", "trayf", "trays", "treck", "treed", "treen", "trees", "trefa", "treif", "treks", "trema", "trems", "tress", "trest", "trets", "trews", "treyf", "treys", "triac", "tride", "trier", "tries", "triff", "trigo", "trigs", "trike", "trild", "trill", "trims", "trine", "trins", "triol", "trior", "trios", "trips", "tripy", "trist", "troad", "troak", "troat", "trock", "trode", "trods", "trogs", "trois", "troke", "tromp", "trona", "tronc", "trone", "tronk", "trons", "trooz", "troth", "trots", "trows", "troys", "trued", "trues", "trugo", "trugs", "trull", "tryer", "tryke", "tryma", "tryps", "tsade", "tsadi", "tsars", "tsked", "tsuba", "tsubo", "tuans", "tuart", "tuath", "tubae", "tubar", "tubas", "tubby", "tubed", "tubes", "tucks", "tufas", "tuffe", "tuffs", "tufts", "tufty", "tugra", "tuile", "tuina", "tuism", "tuktu", "tules", "tulpa", "tulsi", "tumid", "tummy", "tumps", "tumpy", "tunas", "tunds", "tuned", "tuner", "tunes", "tungs", "tunny", "tupek", "tupik", "tuple", "tuque", "turds", "turfs", "turfy", "turks", "turme", "turms", "turns", "turnt", "turps", "turrs", "tushy", "tusks", "tusky", "tutee", "tutti", "tutty", "tutus", "tuxes", "tuyer", "twaes", "twain", "twals", "twank", "twats", "tways", "tweel", "tween", "tweep", "tweer", "twerk", "twerp", "twier", "twigs", "twill", "twilt", "twink", "twins", "twiny", "twire", "twirp", "twite", "twits", "twoer", "twyer", "tyees", "tyers", "tyiyn", "tykes", "tyler", "tymps", "tynde", "tyned", "tynes", "typal", "typed", "types", "typey", "typic", "typos", "typps", "typto", "tyran", "tyred", "tyres", "tyros", "tythe", "tzars", "udals", "udons", "ugali", "ugged", "uhlan", "uhuru", "ukase", "ulama", "ulans", "ulema", "ulmin", "ulnad", "ulnae", "ulnar", "ulnas", "ulpan", "ulvas", "ulyie", "ulzie", "umami", "umbel", "umber", "umble", "umbos", "umbre", "umiac", "umiak", "umiaq", "ummah", "ummas", "ummed", "umped", "umphs", "umpie", "umpty", "umrah", "umras", "unais", "unapt", "unarm", "unary", "unaus", "unbag", "unban", "unbar", "unbed", "unbid", "unbox", "uncap", "unces", "uncia", "uncos", "uncoy", "uncus", "undam", "undee", "undos", "undug", "uneth", "unfix", "ungag", "unget", "ungod", "ungot", "ungum", "unhat", "unhip", "unica", "units", "unjam", "unked", "unket", "unkid", "unlaw", "unlay", "unled", "unlet", "unlid", "unman", "unmew", "unmix", "unpay", "unpeg", "unpen", "unpin", "unred", "unrid", "unrig", "unrip", "unsaw", "unsay", "unsee", "unsew", "unsex", "unsod", "untax", "untin", "unwet", "unwit", "unwon", "upbow", "upbye", "updos", "updry", "upend", "upjet", "uplay", "upled", "uplit", "upped", "upran", "uprun", "upsee", "upsey", "uptak", "upter", "uptie", "uraei", "urali", "uraos", "urare", "urari", "urase", "urate", "urbex", "urbia", "urdee", "ureal", "ureas", "uredo", "ureic", "urena", "urent", "urged", "urger", "urges", "urial", "urite", "urman", "urnal", "urned", "urped", "ursae", "ursid", "urson", "urubu", "urvas", "users", "usnea", "usque", "usure", "usury", "uteri", "uveal", "uveas", "uvula", "vacua", "vaded", "vades", "vagal", "vagus", "vails", "vaire", "vairs", "vairy", "vakas", "vakil", "vales", "valis", "valse", "vamps", "vampy", "vanda", "vaned", "vanes", "vangs", "vants", "vaped", "vaper", "vapes", "varan", "varas", "vardy", "varec", "vares", "varia", "varix", "varna", "varus", "varve", "vasal", "vases", "vasts", "vasty", "vatic", "vatus", "vauch", "vaute", "vauts", "vawte", "vaxes", "veale", "veals", "vealy", "veena", "veeps", "veers", "veery", "vegas", "veges", "vegie", "vegos", "vehme", "veils", 
 "veily", "veins", "veiny", "velar", "velds", "veldt", "veles", "vells", "velum", "venae", "venal", "vends", "vendu", "veney", "venge", "venin", "vents", "venus", "verbs", "verra", "verry", "verst", "verts", "vertu", "vespa", "vesta", "vests", "vetch", "vexed", "vexer", "vexes", "vexil", "vezir", "vials", "viand", "vibes", "vibex", "vibey", "viced", "vices", "vichy", "viers", "views", "viewy", "vifda", "viffs", "vigas", "vigia", "vilde", "viler", "villi", "vills", "vimen", "vinal", "vinas", "vinca", "vined", "viner", "vines", "vinew", "vinic", "vinos", "vints", "viold", "viols", "vired", "vireo", "vires", "virga", "virge", "virid", "virls", "virtu", "visas", "vised", "vises", "visie", "visne", "vison", "visto", "vitae", "vitas", "vitex", "vitro", "vitta", "vivas", "vivat", "vivda", "viver", "vives", "vizir", "vizor", "vleis", "vlies", "vlogs", "voars", "vocab", "voces", "voddy", "vodou", "vodun", "voema", "vogie", "voids", "voile", "voips", "volae", "volar", "voled", "voles", "volet", "volks", "volta", "volte", "volti", "volts", "volva", "volve", "vomer", "voted", "votes", "vouge", "voulu", "vowed", "vower", "voxel", "vozhd", "vraic", "vrils", "vroom", "vrous", "vrouw", "vrows", "vuggs", "vuggy", "vughs", "vughy", "vulgo", "vulns", "vulva", "vutty", "waacs", "wacke", "wacko", "wacks", "wadds", "waddy", "waded", "wader", "wades", "wadge", "wadis", "wadts", "waffs", "wafts", "waged", "wages", "wagga", "wagyu", "wahoo", "waide", "waifs", "waift", "wails", "wains", "wairs", "waite", "waits", "wakas", "waked", "waken", "waker", "wakes", "wakfs", "waldo", "walds", "waled", "waler", "wales", "walie", "walis", "walks", "walla", "walls", "wally", "walty", "wamed", "wames", "wamus", "wands", "waned", "wanes", "waney", "wangs", "wanks", "wanky", "wanle", "wanly", "wanna", "wants", "wanty", "wanze", "waqfs", "warbs", "warby", "wards", "wared", "wares", "warez", "warks", "warms", "warns", "warps", "warre", "warst", "warts", "wases", "washy", "wasms", "wasps", "waspy", "wasts", "watap", "watts", "wauff", "waugh", "wauks", "waulk", "wauls", "waurs", "waved", "waves", "wavey", "wawas", "wawes", "wawls", "waxed", "waxer", "waxes", "wayed", "wazir", "wazoo", "weald", "weals", "weamb", "weans", "wears", "webby", "weber", "wecht", "wedel", "wedgy", "weeds", "weeke", "weeks", "weels", "weems", "weens", "weeny", "weeps", "weepy", "weest", "weete", "weets", "wefte", "wefts", "weids", "weils", "weirs", "weise", "weize", "wekas", "welds", "welke", "welks", "welkt", "wells", "welly", "welts", "wembs", "wench", "wends", "wenge", "wenny", "wents", "weros", "wersh", "wests", "wetas", "wetly", "wexed", "wexes", "whamo", "whams", "whang", "whaps", "whare", "whata", "whats", "whaup", "whaur", "wheal", "whear", "wheen", "wheep", "wheft", "whelk", "whelm", "whens", "whets", "whews", "wheys", "whids", "whift", "whigs", "whilk", "whims", "whins", "whios", "whips", "whipt", "whirr", "whirs", "whish", "whiss", "whist", "whits", "whity", "whizz", "whomp", "whoof", "whoot", "whops", "whore", "whorl", "whort", "whoso", "whows", "whump", "whups", "whyda", "wicca", "wicks", "wicky", "widdy", "wides", "wiels", "wifed", "wifes", "wifey", "wifie", "wifty", "wigan", "wigga", "wiggy", "wikis", "wilco", "wilds", "wiled", "wiles", "wilga", "wilis", "wilja", "wills", "wilts", "wimps", "winds", "wined", "wines", "winey", "winge", "wings", "wingy", "winks", "winna", "winns", "winos", "winze", "wiped", "wiper", "wipes", "wired", "wirer", "wires", "wirra", "wised", "wises", "wisha", "wisht", "wisps", "wists", "witan", "wited", "wites", "withe", "withs", "withy", "wived", "wiver", "wives", "wizen", "wizes", "woads", "woald", "wocks", "wodge", "woful", "wojus", "woker", "wokka", "wolds", "wolfs", "wolly", "wolve", "wombs", "womby", "womyn", "wonga", "wongi", "wonks", "wonky", "wonts", "woods", "wooed", "woofs", "woofy", "woold", "wools", "woons", "woops", "woopy", "woose", "woosh", "wootz", "words", "works", "worms", "wormy", "worts", "wowed", "wowee", "woxen", "wrang", "wraps", "wrapt", "wrast", "wrate", "wrawl", "wrens", "wrick", "wried", "wrier", "wries", "writs", "wroke", "wroot", "wroth", "wryer", "wuddy", "wudus", "wulls", "wurst", "wuses", "wushu", "wussy", "wuxia", "wyled", "wyles", "wynds", "wynns", "wyted", "wytes", "xebec", "xenia", "xenic", "xenon", "xeric", "xerox", "xerus", "xoana", "xrays", "xylan", "xylem", "xylic", "xylol", "xylyl", "xysti", "xysts", "yaars", "yabas", "yabba", "yabby", "yacca", "yacka", "yacks", "yaffs", "yager", "yages", "yagis", "yahoo", "yaird", "yakka", "yakow", "yales", "yamen", "yampy", "yamun", "yangs", "yanks", "yapok", "yapon", "yapps", "yappy", "yarak", "yarco", "yards", "yarer", "yarfa", "yarks", "yarns", "yarrs", "yarta", "yarto", "yates", "yauds", "yauld", "yaups", "yawed", "yawey", "yawls", "yawns", "yawny", "yawps", "ybore", "yclad", "ycled", "ycond", "ydrad", "ydred", "yeads", "yeahs", "yealm", "yeans", "yeard", "years", "yecch", "yechs", "yechy", "yedes", "yeeds", "yeesh", "yeggs", "yelks", "yells", "yelms", "yelps", "yelts", "yenta", "yente", "yerba", "yerds", "yerks", "yeses", "yesks", "yests", "yesty", "yetis", "yetts", "yeuks", "yeuky", "yeven", "yeves", "yewen", "yexed", "yexes", "yfere", "yiked", "yikes", "yills", "yince", "yipes", "yippy", "yirds", "yirks", "yirrs", "yirth", "yites", "yitie", "ylems", "ylike", "ylkes", "ymolt", "ympes", "yobbo", "yobby", "yocks", "yodel", "yodhs", "yodle", "yogas", "yogee", "yoghs", "yogic", "yogin", "yogis", "yoick", "yojan", "yoked", "yokel", "yoker", "yokes", "yokul", "yolks", "yolky", "yomim", "yomps", "yonic", "yonis", "yonks", "yoofs", "yoops", "yores", "yorks", "yorps", "youks", "yourn", "yours", "yourt", "youse", "yowed", "yowes", "yowie", "yowls", "yowza", "yrapt", "yrent", "yrivd", "yrneh", "ysame", "ytost", "yuans", "yucas", "yucca", "yucch", "yucko", "yucks", "yucky", "yufts", "yugas", "yuked", "yukes", "yukky", "yukos", "yulan", "yules", "yummo", "yummy", "yumps", "yupon", "yuppy", "yurta", "yurts", "yuzus", "zabra", "zacks", "zaida", "zaidy", "zaire", "zakat", "zaman", "zambo", "zamia", "zanja", "zante", "zanza", "zanze", "zappy", "zarfs", "zaris", "zatis", "zaxes", "zayin", "zazen", "zeals", "zebec", "zebub", "zebus", "zedas", "zeins", "zendo", "zerda", "zerks", "zeros", "zests", "zetas", "zexes", "zezes", "zhomo", "zibet", "ziffs", "zigan", "zilas", "zilch", "zilla", "zills", "zimbi", "zimbs", "zinco", "zincs", "zincy", "zineb", "zines", "zings", "zingy", "zinke", "zinky", "zippo", "zippy", "ziram", "zitis", "zizel", "zizit", "zlote", "zloty", "zoaea", "zobos", "zobus", "zocco", "zoeae", "zoeal", "zoeas", "zoism", "zoist", "zombi", "zonae", "zonda", "zoned", "zoner", "zones", "zonks", "zooea", "zooey", "zooid", "zooks", "zooms", "zoons", "zooty", "zoppa", "zoppo", "zoril", "zoris", "zorro", "zouks", "zowee", "zowie", "zulus", "zupan", "zupas", "zuppa", "zurfs", "zuzim", "zygal", "zygon", "zymes", "zymic"];
 
-let guesses = [[],[],[],[],[],[]]; // 6 guesses, 5 letters for each guess
-let activeWord = 0;
-let activeChar = 0;
 
-let tempDisabled = false;
-let permDisabled = false;
 
-// let targetWord = wordList[100];
 
-let opponent = sessionStorage.getItem('opponent');
-let targetWord = sessionStorage.getItem('targetWord');
-
-console.log(targetWord);
-
-window.onload = function(){    
-    // Click on letter calls addLetter
-    let letters = document.getElementsByClassName('letter');
-    for (element of letters){
-        element.addEventListener('click', function(event){
-            if (tempDisabled || permDisabled){ // Game not active while tiles are flipping
-                return;
-            }
-            addLetter(event.target.innerHTML);
-        })
-    }
-    // Click on enter calls enterWord
-    let enter = document.getElementsByClassName('enter')[0];
-    enter.addEventListener('click',() => {
-        if (tempDisabled || permDisabled){
-            return;
-        }
-        enterWord();
-    })
-    // click on delete calls deleteLetter
-    let delet = document.getElementsByClassName('delete')[0];
-    delet.addEventListener('click', () => {
-        if (tempDisabled || permDisabled){
-            return;
-        }
-        deleteLetter();
-    })
-    // Listen for keyboard press backspace, enter, and any letter
-    document.body.addEventListener('keydown', e=>{
-        if (tempDisabled || permDisabled){
-            return;
-        }
-        if (e.key === 'Backspace'){
-            deleteLetter();
-        }
-        else if (e.key === 'Enter'){
-            enterWord();
-        }
-        else if (e.key.length === 1 && (e.key >= 'a' && e.key <= 'z' || e.key >= 'A' && e.key <= 'Z')){    
-            addLetter(e.key.toUpperCase());
-        }
-    })
-}
-// puts a letter in the appropriate box
-function addLetter(letter){
-    if (activeChar < 5){
-        let box = document.querySelector(`[word="${activeWord+1}"][char="${activeChar+1}"]`);
-        box.innerHTML = letter;
-        guesses[activeWord][activeChar++] = letter;
-    }
-}
-
-// removes last letter from box
-function deleteLetter(){
-    if (activeChar != 0){
-        guesses[activeWord][--activeChar] = null;
-        let box = document.querySelector(`[word="${activeWord+1}"][char="${activeChar+1}"]`);
-        box.innerHTML = "";
-    }
-}
-
-// evaluates the entered word, flips tiles, ends game if correct etc.
-// does nothing if user hasn't entered 5 letters
-function enterWord(){
-    if (activeChar == 5){
-        let word = getWord();
-        if (!inWordList(word)){
-            displayBox("Not in word list", 1500)
-            return;
-        }
-        else{
-            checkAnswer(word); 
-        }
-        if (activeWord != 5){
-            activeChar = 0;
-            activeWord++;
-        }
-    }
-}
-
-// evaluates the word, flips the tiles, updates the keyboard colors, ends game if correct/incorrect
-function checkAnswer(word){
-    let colors = getColors(word);
-    flipTiles(colors); 
-    disableButtons(2000);
-    setTimeout(() => {updateKeyboard(word, colors);}, 2000); // update the keyboard after the tiles are done flipping
-    if (allGreen(colors)){
-        youWin();
-    }
-    else if (activeWord == 5){
-        youLose();
-    }
-}
-
-// returns an array of colors corresponding to the word that was just entered
-// ex. 
-// targetWord = 'hello'
-// guess = 'belly'
-// colors = ['gray','green','green','green','gray']
-
-function getColors(guess){
-    let copy = targetWord.split('');
-    let colors = [];
-    guess = guess.split(''); // convert to char array so you can mutate it
-    
-    for (i in guess){ // you need to set all the greens first
-        if (guess[i] === copy[i]){
-            colors[i] = 'green';
-            copy[i] = '#';
-            guess[i] = '#';
-        }
-    }
-    for (i in guess){
-        if (guess[i] !== '#'){
-            if (copy.includes(guess[i])){ 
-                colors[i] = 'orange';
-                arrReplace(copy, guess[i], '#'); // replace the value guess[i] in copy with #
-            }
-            else{
-                colors[i] = 'gray';
-            }
-        }
-    }
-    return colors;
-}
-
-function arrReplace(arr, val, replace){
-    var index = arr.indexOf(val);
-    if (index !== -1) {
-        arr[index] = replace;
-    }
+window.onload = function(){
+    console.log(window.innerHeight);
 }
 
 
-
-function setCharAt(str,index,chr) {
-    if(index > str.length-1) return str;
-    return str.substring(0,index) + chr + str.substring(index+1);
-}
-
-// flips the tiles with the appropriate colors after a guess has been made
-// using loops with setTimeout is a nightmare trust me
-function flipTiles(colors){ 
-    let tiles = document.querySelectorAll(`[word="` + (activeWord + 1) + `"]`);
-    let time = 0;
-    let flipTime = 400;
-
-    setTimeout(() => {flipTile(tiles[0], colors[0]);}, time);
-    time += flipTime; 
-    setTimeout(() => {flipTile(tiles[1], colors[1]);}, time);
-    time += flipTime;
-    setTimeout(() => {flipTile(tiles[2], colors[2]);}, time);
-    time += flipTime;
-    setTimeout(() => {flipTile(tiles[3], colors[3]);}, time);
-    time += flipTime;
-    setTimeout(() => {flipTile(tiles[4], colors[4]);}, time);
-    time += flipTime;
-
-}
-
-// shows the colors on the keyboard tiles
-function updateKeyboard(word, colors){
-    // Basically iterate through the colors, and then get the html element with the class equal to word[i], and set that to it's appropriate color
-    for (i in colors){
-        let key = document.querySelector('.' + word[i]);
-        let color = colors[i] === 'gray' ? 'rgb(56,56,56)' : colors[i];
-        changeColor(key, color);
-    }
-}
-// Key colors can only move from gray -> yellow -> green, they do not move backwards, a green letter will never become yellow/gray
-function changeColor(key, newColor){
-    let colorOrder = ['gray', 'rgb(56,56,56)', 'orange', 'green'];
-    let oldColor = key.style.backgroundColor;
-
-    if (colorOrder.indexOf(oldColor) < colorOrder.indexOf(newColor)) {
-        key.style.backgroundColor = newColor;
-    }
-}
-
-// disallows entering letters while tiles are flipping or after game has been won or lost
-function disableButtons(time){
-    if(!time){
-        permDisabled = true;
-        return;
-    }
-    tempDisabled = true;
-    setTimeout(() => {
-        tempDisabled = false;  
-    }, time);
-}
-
-// Shows the right answer, disables all buttons
-function youLose(){
-    sendReport(false);
-    setTimeout(() => {displayBox(targetWord.toUpperCase(), 1500);}, 2000);    
-}
-
-// Says 'nice' disables all buttons
-function youWin(){
-    sendReport(true);
-    disableButtons();
-    setTimeout(() => {displayBox('Nice', 1500);}, 2000);
-}
-
-// sends the game report to DB
-function sendReport(win){
-    fetch('/game', {
-        method: 'POST',
-        body: JSON.stringify({
-            opponent: opponent,
-            guesses: cleanGuesses(guesses),
-            targetWord: targetWord,
-            win: win
-        }),
+function handleFriendRequest(sender, decision){
+    fetch('/home', {
+        method: "PUT",
+        body: JSON.stringify({ 
+            sender: sender,
+            decision: decision
+         }),
         headers: {
-            'Content-type': 'application/json'
+            "Content-type": "application/json; charset=UTF-8"
         }
     }).then(res => {
-        if (res.redirected){
-            window.location.href = res.url;
+        document.location.reload()
+    })
+}
+
+function declineChallenge(challenger){
+    console.log(challenger);
+    
+    fetch('/home/challenge/decline', {
+        method: "POST",
+        body: JSON.stringify({ 
+            challenger: challenger
+         }),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
         }
-    });
+    }).then(res => {
+        document.location.reload()
+    })
 }
 
-// returns a version of guesses that's an array of strings instead of an array of char arrays, also it trims it down
-function cleanGuesses(guesses){
-    let newGuesses = [];
-    for (guess of guesses){
-        if (guess[0] === undefined){
-            return newGuesses;
-        }
-        newGuesses.push(guess.join("").toLowerCase());
-    }
-    return newGuesses;
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function getNormalWord(){
+    let max = wordList.indexOf('widow') + 1;
+    // generate a random number between 0 and max
+    let i = getRandomInt(max);
+    return wordList[i];
+}
+function getGodWord(){
+    let min = wordList.indexOf('widow') + 1;
+    let max = wordList.length;
+
+    let i = getRandomInt(max - min) + min;
+    return wordList[i];
 }
 
 
-
-// returns true if all the colors are green, aka you won
-function allGreen(colors){
-    for (color of colors){
-        if (color != 'green'){
-            return false;
-        }
-    }
-    return true;
-}
-
-// Banner at the top, generally used to indicate that the word was not in the word list
-function displayBox(message, time){
-    let box = document.getElementsByClassName("announcement")[0];
-    box.innerHTML = message;
-    box.style.visibility = "visible";
-    setTimeout(() => {box.style.visibility = "hidden";}, time);
-}
-
-// puts the word that was just guessed in a string
-function getWord(){
-    return guesses[activeWord].toString().replaceAll(',','').toLowerCase();
-}
-
-// flips an individual tile
-function flipTile(tile, color){
-    tile.style.transform = "rotateX(90deg)";
-    setTimeout(() => {
-        tile.style.transition = "none";
-        tile.style.transform = "rotateX(-90deg)";
-        tile.style.backgroundColor = color;
-        tile.style.transition = "all 0.25s";
-        tile.style.transform = "rotateX(0deg)";
-    }, 250)
-}
-
-function inWordList(word){
-    return wordList.includes(word);
-}
-
-function getOffset(el) {
-    const rect = el.getBoundingClientRect();
-    return {
-      left: rect.left + window.scrollX,
-      top: rect.top + window.scrollY
-    };
-}
-// for the nav bar
 function renderGame(opponent, targetWord){
     // ok now we need to render a game where opponent is equal to opponent and targetWord is equal to opponent
     // let's use session storage
@@ -328,20 +87,227 @@ function renderGame(opponent, targetWord){
     window.location.href = '/game';
 }
 
-function getNormalWord(){
-    let max = wordList.indexOf('widow') + 1;
-    // generate a random number between 0 and max
-    let i = getRandomInt(max);
-    return wordList[i];
-}
-function getGodWord(){
-    let min = wordList.indexOf('widow') + 1;
-    let max = wordList.length;
+function challengeFriend(friend, accept){
+    let modal_bg = document.querySelector('.modal-bg');
+    let modal = document.querySelector('.modal');
 
-    let i = getRandomInt(max - min) + min;
-    return wordList[i];
+    let action = '/home/challenge';
+    if (accept){
+        action += '/accept';
+    }
+
+    modal.innerHTML = `
+    <button onclick = "closeModal()" class = "close-modal">&times;</button>
+    <h3 class = "modal-header">Challenge ${friend}</h3>
+    <p>Enter 5 words for ${friend} to guess!</p>
+    <form action="${action}" method = "POST" class="words-form">
+      <input type="text" name = "opponent" class="invisible-username" value="${friend}">
+      <input class = "challenge-word" type="text" name = "word1" placeholder = "word one" required>
+      <input class = "challenge-word" type="text" name = "word2" placeholder = "word two" required>
+      <input class = "challenge-word" type="text" name = "word3" placeholder = "word three" required>
+      <input class = "challenge-word" type="text" name = "word4" placeholder = "word four" required>
+      <input class = "challenge-word" type="text" name = "word5" placeholder = "word five" required>
+      <input class="submit-challenge" type = "submit"  value= "Send Challenge"></button>
+    </form>`;
+
+    modal_bg.classList.add('bg-active');
+
+    let challengeWords = document.querySelectorAll('input.challenge-word');
+
+    for (word of challengeWords){
+        // ok so we're accessing the correct word element here
+
+        word.addEventListener("input", event => { 
+            
+
+            let currentWord = event.currentTarget;
+
+            if (!(currentWord.value.length === 5) || !wordList.includes(currentWord.value)){
+                console.log('invalid word', currentWord.value);
+                currentWord.setCustomValidity("This is not a valid word!");
+            }  
+            else{
+                currentWord.setCustomValidity("");
+            }
+        })
+    }
 }
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+function showPastMatches(pastMatches){
+    
+    
+    pastMatches = JSON.parse(pastMatches);
+
+    let modal_bg = document.querySelector('.modal-bg');
+    let modal = document.querySelector('.modal');
+
+    modal_bg.classList.add('bg-active');
+
+
+    modal.innerHTML = 
+        `<button onclick = "closeModal()" class = "close-modal">&times;</button>
+        <h3 class = "modal-header">Past Matches</h3>
+        <ul class = "past-matches-modal-list"></ul>`;
+
+
+    let ul = document.querySelector('ul.past-matches-modal-list');    
+    for (match of pastMatches){
+        if (match.result === 'win'){
+            ul.innerHTML += `
+            <li class="past-matches-modal-list">
+            <span class="result" style = "color:green;">W vs ${match.opponent} &emsp;</span>
+            <span class="scoreboard" style = "color:green;">${match.myTotalGuesses}-${match.opponentTotalGuesses}</span>
+            <p class = "supplied-words">You supplied: ${match.mySuppliedWords}</p>
+            <p class = "supplied-words">Opponent supplied: ${match.opponentSuppliedWords}</p>
+            </li>`
+        }
+        else if (match.result === 'loss'){
+            ul.innerHTML += `
+            <li class="past-matches-modal-list">
+            <span class="result" style="color:red;">L vs ${match.opponent} &emsp;</span>
+            <span class="scoreboard" style = "color:red;">${match.myTotalGuesses}-${match.opponentTotalGuesses}</span>
+            <p class = "supplied-words">You supplied: ${match.mySuppliedWords}</p>
+            <p class = "supplied-words">Opponent supplied: ${match.opponentSuppliedWords}</p>
+            </li>`
+        }
+        else{
+            ul.innerHTML += `
+            <li class="past-matches-modal-list">
+            <span class="result" style="color:orange;">Tie vs ${match.opponent} &emsp;</span>
+            <span class="scoreboard" style = "color:orange;">${match.myTotalGuesses}-${match.opponentTotalGuesses}</span>
+            <p class = "supplied-words">You supplied: ${match.mySuppliedWords}</p>
+            <p class = "supplied-words">Opponent supplied: ${match.opponentSuppliedWords}</p>
+            </li>`
+        } 
+    }
 }
 
+function howToPlay(){
+    let modal_bg = document.querySelector('.modal-bg');
+    let modal = document.querySelector('.modal');
+
+    modal_bg.classList.add('bg-active');
+
+    modal.innerHTML = `
+    <button onclick = "closeModal()" class = "close-modal">&times;</button>
+        <h3 class = "modal-header">Fewest Guesses Wins</h3>
+        <ul class = "how-its-scored">
+          <li class = "how-its-scored"><p>Each player has to guess 5 words offered by his opponent</p></li>
+          <li class = "how-its-scored"><p>Over the course of the game, the total number of guesses is recorded for each player</p></li>
+          <li class = "how-its-scored"><p>If you fail to get a word in 6 guesses, then 2 guesses are added to your total (so 8 total guesses for the turn)</p></li>
+          <li class = "how-its-scored"><p>The player with the lowest total wins the match!</p></li>
+          <li class = "how-its-scored">
+            <p>After the match, the result will be displayed in "Past Matches" along with the score. A score of 22-20 indicates that it took you 22 guesses to get all 5 words while it took your opponent 20 guesses.</p>
+          </li> 
+          </ul>`
+}
+
+function seeGames(type, trials){
+    let modal_bg = document.querySelector('.modal-bg');
+    let modal = document.querySelector('.modal');
+
+    modal_bg.classList.add('bg-active');
+
+    trials = JSON.parse(trials);
+
+
+
+    modal.innerHTML = `
+    <button onclick = "closeModal()" class = "close-modal">&times;</button>
+    <h3 class = "modal-header">${type} Games</h3>
+    <ol class = "single-games-modal-list"></ol>`;
+
+    let ol = document.querySelector('ol.single-games-modal-list');
+
+    for (trial of trials){
+        let color = trial.win ? 'green' : 'red';
+        ol.innerHTML += `
+            <li class = "single-games-modal-list" style = "color: ${color}">
+                <p class = "single-games target">Target Word: ${trial.targetWord}</p>
+                <p class = "single-games guesses">Guesses: ${trial.guesses}</p>
+            </li>
+        `
+    }
+}
+
+
+
+
+function showFriendList(userString){
+    let modal_bg = document.querySelector('.modal-bg');
+    let modal = document.querySelector('.modal');
+
+    modal_bg.classList.add('bg-active');
+    
+    let user = JSON.parse(userString);
+
+    
+
+    let friends = user.friends;
+
+    modal.innerHTML = `
+    <button onclick = "closeModal()" class = "close-modal">&times;</button>
+    <h3 class = "modal-header">Friend List</h3>
+    <ul class = "modal-friend-list">
+    </ul>`;
+
+    let ul = document.querySelector('ul.modal-friend-list');
+
+    for (friend of friends){
+        ul.innerHTML += `<li class = "modal-list ${friend}">${friend}</li>`; 
+        console.log('this runs')
+        if (!activeGame(user, friend) && !isChallenge(user, friend)){
+            console.log('this does not run');
+            let li = document.querySelector(`li.${friend}`);
+            li.innerHTML += `<button class="modal-challenge" onclick = "challengeFriend('${friend}')">Challenge Friend</button>`
+        }
+    }
+}
+
+function activeGame(user, friend){
+    for (game of user.activeMatches){
+        if (game.opponent === friend){
+            return true;
+        }
+    }
+    return false;
+}
+
+function isChallenge(user, friend){
+    for (challenge of user.challenges){
+        if (challenge.challenger === friend){
+            return true;
+        }
+    }
+    return false;
+}
+
+
+function showPendingChallenges(pendingChallenges){
+    let modal_bg = document.querySelector('.modal-bg');
+    let modal = document.querySelector('.modal');
+    
+    modal_bg.classList.add('bg-active');
+
+    let pending = JSON.parse(pendingChallenges);
+
+    modal.innerHTML = `
+    <button onclick = "closeModal()" class = "close-modal">&times;</button>
+    <h3 class = "modal-header">Pending Challenges</h3>
+    <p class = "pending-modal-description">You are awaiting responses to challenges to the following users <br><br> You can send another challenge to same user to override your previous one</p>
+    <ul class = "pending-modal-list">
+    </ul>`
+    
+    let ul = document.querySelector('ul.pending-modal-list');
+    
+    for (challenge of pending){
+        ul.innerHTML += `<li class = "modal-list">${challenge.challengee}</li>`
+    }
+
+}
+
+
+
+function closeModal(){
+    let modal_bg = document.querySelector('.modal-bg');
+    modal_bg.classList.remove('bg-active');
+}

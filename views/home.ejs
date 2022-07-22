@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <script src="javascripts/home.js"></script>
+    <title>Home - <%=user.username%></title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h1 class="fakelogo"><a href="/home">Bordle</a></h1>
+        </div>
+        <div class="navigation">
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li onclick="howToPlay()">How It's Scored</li>
+            <li onclick="renderGame('normal')">Play Normal</li>
+            <li onclick="renderGame('god')">Play God</li>
+            <li><a href="/login">Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="home-page">
+      <div class="block add-request">
+        <div class="add-friend">
+            <h4 class = "add-friend">Add Friend</h4>
+            <form class="add-friend" action="/home" method="POST">
+                <input type="text" name="friend" class = "add-friend input-text" placeholder = "Username" required/>
+                <input type = "submit" class="add-button" value= "Send Friend Request"></button>
+                <p class = "add-friend error"><%=locals.addFriendMsg%></p>
+            </form>
+        </div>
+        <div class="friend-requests">
+            <h4>Friend requests</h4>
+            <ul class = "request-list">
+              <% for( let i = 0; i < user.friendRequests.length && i<4; i++ ) { %>
+                <li>Friend Request: <%=user.friendRequests[i]%> <div class="button-holder"><button class = "accept friend-request" onclick = "handleFriendRequest('<%=user.friendRequests[i]%>','accept')">Accept</button><button class = "decline friend-request" onclick = "handleFriendRequest('<%=user.friendRequests[i]%>','decline')">Decline</button></div></li>
+              <% } %>
+            </ul>
+        </div>
+      </div>
+      <div class="block active-games">
+          <h4>Active Games</h4>
+          <ul class = "active-games-list">
+            <% for( let i = 0; i<user.activeMatches.length && i<7; i++) { %>
+              <li class = "active-games-list"><%=user.activeMatches[i].opponent%> 
+                <span class="myRemaining"><%=5 - user.activeMatches[i].myTrials.length%> to play</span>
+                <span class="oppRemaining"><%=5 - user.activeMatches[i].opponentTrials.length%> to play</span>
+                <% if (user.activeMatches[i].myTrials.length < 5) { %>
+                <button class="playChallenge" onclick = "renderGame('<%=user.activeMatches[i].opponent%>','<%=user.activeMatches[i].opponentSuppliedWords[user.activeMatches[i].myTrials.length]%>')">Play</button>
+                <% } %>
+              </li>
+            <% } %>
+          </ul>
+
+      </div>
+      <div class="block past-matches">
+          <h4>Past Matches</h4>
+          <ul class="past-games-list">
+          <% for( let i = 0; i < user.pastMatches.length && i<8; i++ ) { %>
+            <li class="past-games-list">
+              <% if (user.pastMatches[i].result === 'win') { %>
+                <span class="result" style = "color:green;">W vs <%=user.pastMatches[i].opponent%></span>
+                <span class="scoreboard" style = "color:green;"><%=user.pastMatches[i].myTotalGuesses%>-<%=user.pastMatches[i].opponentTotalGuesses%></span>
+              <% } else if (user.pastMatches[i].result === 'loss'){ %>
+                <span class="result" style="color:red;">L vs <%=user.pastMatches[i].opponent%></span>
+                <span class="scoreboard" style = "color:red;"><%=user.pastMatches[i].myTotalGuesses%>-<%=user.pastMatches[i].opponentTotalGuesses%></span>
+              <% } else { %>
+                <span class="result" style="color:orange;">Tie vs <%=user.pastMatches[i].opponent%></span>
+                <span class="scoreboard" style = "color:orange;"><%=user.pastMatches[i].myTotalGuesses%>-<%=user.pastMatches[i].opponentTotalGuesses%></span>
+              <% } %>
+            </li>
+          <% } %>
+          </ul>
+          <p onclick = "showPastMatches('<%=JSON.stringify(user.pastMatches)%>')" class = "past-match-list">See all past matches</p>
+      </div>
+      <div class="block friend-list">
+          <h4>Friends</h4>
+          <ul class = "friend-list">
+            <% for( let i = 0; i < user.friends.length && i<7; i++ ) { %>
+              <li><%=user.friends[i]%> <% if (!activeGame(user, user.friends[i]) && !isChallenge(user, user.friends[i])){ %>
+                <button class="challenge" onclick = "challengeFriend('<%=user.friends[i]%>')">Challenge Friend</button>
+              <% } %>
+              </li>
+            <% } %>
+          </ul>
+          <p onclick = "showFriendList('<%=JSON.stringify(user)%>')" class = "friend-list">See full friends list</p>
+      </div>
+      <div class="block challenge">
+          <h4>Challenges</h4>
+          <ul class="challenge-list">
+          <% for( let i = 0; i<user.challenges.length && i<8; i++) { %>
+            <li class="challenge-list">Challenge: <%=user.challenges[i].challenger%>
+              <div class="button-holder">
+              <button class="acceptChallenge" onclick = "challengeFriend('<%=user.challenges[i].challenger%>', true)">Accept</button><button class="declineChallenge" onclick = "declineChallenge('<%=user.challenges[i].challenger%>')">Decline</button></div></li>
+          <% } %>
+        </ul>
+          <p onclick = "showPendingChallenges('<%=JSON.stringify(user.pendingChallenges)%>')" class = "pending-list">See pending challenges</p>
+      </div>
+      <div class="block play">
+          <h4 class = "play-solo">Play Solo</h4>
+          <div class="buttons-scores">
+            <div class = "normal">
+              <p class="normal-score">Win Rate: <%=parseFloat(user.normalWinRate).toFixed(2) * 100%>%</p>
+              <button class="normal-button" onclick = "renderGame('normal')" >Normal Mode</button>
+              <p class="normal-score">Avg: <%=parseFloat(user.normalAvg).toFixed(1)%></p>
+            </div>
+            <div class = "god">
+              <p class="normal-score">Win Rate: <%=parseFloat(user.godWinRate).toFixed(2) * 100%>%</p>
+              <button class="god-button" onclick = "renderGame('god')">God Mode</button>
+              <p class="god-score">Avg: <%=parseFloat(user.godAvg).toFixed(1)%></p>
+            </div>
+          </div>
+          <div class="history">
+            <span class="normal-history" onclick = "seeGames('Normal', '<%=JSON.stringify(user.normalTrials)%>')">See all normal games</span>
+            <span class="god-history" onclick = "seeGames('God', '<%=JSON.stringify(user.godTrials)%>')">See all god games</span>
+          </div>
+
+
+      </div>
+    </div>
+    <div class="modal-bg">
+      <div class="modal">
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.target-words,
+.match {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.words-form,
+.return-words {
+  padding-left: 5px;
+  padding-right: 5px;
+  visibility: hidden;
+}
+
+span.friend {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+button {
+  height: 20px;
+  width: 100px;
+  margin-left: 10px;
+}
+
+.match-state {
+  padding: 10px;
+}

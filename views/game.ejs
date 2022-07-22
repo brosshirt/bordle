@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/public/stylesheets/game.css" />
-    <script src="/public/javascripts/game.js"></script>
+    <link rel="stylesheet" href="stylesheets/game.css" />
+    <script src="javascripts/game.js"></script>
     <title>Bordle</title>
   </head>
   <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h1 class="fakelogo"><a href="/home">Bordle</a></h1>
+        </div>
+        <div class="navigation">
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li onclick="renderGame('normal')">Play Normal</li>
+            <li onclick="renderGame('god')">Play God</li>
+            <li><a href="/login">Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
     <div class="game-container">
       <div class="game-board">
         <div class="announcement">Dummy text</div>

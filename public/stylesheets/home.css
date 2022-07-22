@@ -1,0 +1,362 @@
+body {
+  background-color: black;
+  color: white;
+  display: grid;
+  place-items: center;
+  margin: 0;
+}
+.home-page {
+  height: 90vh;
+  max-height: 90vh;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border: 5px solid gray;
+}
+.home-page > * {
+  min-height: 0;
+}
+
+div.friend-list {
+  /* max-height: 370px; */
+}
+
+.block {
+  border: 3px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.add-friend,
+.friend-requests {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Add Friends */
+h4.add-friend {
+  margin-bottom: 4.5%;
+}
+input.add-friend {
+  height: 26.5%;
+  width: 31%;
+  margin-bottom: 3%;
+}
+div.add-friend {
+  height: 40%;
+}
+p.add-friend {
+  padding-top: 1%;
+  font-size: 14px;
+  color: red;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Friend Requests */
+.friend-requests {
+  height: 60%;
+  /* max-height: 217.8px; */
+  border: 3px solid gray;
+  border-bottom: none;
+}
+div.challenge {
+  /* max-height: 367px; */
+}
+
+span.myRemaining {
+  color: green;
+}
+span.oppRemaining {
+  color: red;
+}
+ul.active-games-list {
+  padding-left: 0;
+}
+li.active-games-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+ul.past-games-list {
+  padding-left: 0;
+}
+li.past-games-list {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+p.supplied-words {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.buttons-scores {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.normal,
+.god {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.play {
+  justify-content: space-between;
+}
+.history {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+ul.request-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 65%;
+}
+ul.challenge-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 65%;
+}
+
+p.friend-list {
+  margin-bottom: 0;
+  margin-top: auto;
+  align-self: end;
+  color: orange;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-right: 3px;
+}
+p.past-match-list {
+  margin-top: auto;
+  align-self: end;
+  color: orange;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 0;
+  margin-right: 3px;
+}
+
+ol.single-games-modal-list {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 100%;
+  list-style: circle;
+}
+li.single-games-modal-list {
+  padding: 0;
+}
+ul.past-matches-modal-list {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 100%;
+  list-style: circle;
+}
+li.past-matches-modal-list {
+  padding-left: 0;
+}
+
+ul.how-its-scored {
+  list-style: circle;
+  font-weight: bold;
+  color: purple;
+}
+li.how-its-scored p {
+  margin: 10px;
+}
+
+span.god-history,
+span.normal-history {
+  color: orange;
+  text-decoration: underline;
+  cursor: pointer;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+h4.play-solo {
+  margin-bottom: 0;
+}
+
+p.pending-list {
+  margin-top: auto;
+  align-self: end;
+  margin-bottom: 0;
+  margin-right: 3px;
+  color: orange;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+ul.pending-modal-list {
+  list-style: circle;
+  margin-left: 30px;
+}
+li {
+  padding: 1.5%;
+  position: relative;
+}
+
+div.challenge {
+  position: relative;
+}
+button.challenge {
+  position: absolute;
+  left: 30%;
+}
+button.modal-challenge {
+  position: absolute;
+  left: 36%;
+}
+
+h4 {
+  margin-top: 4%;
+}
+
+.my-status {
+  color: green;
+}
+.opp-status {
+  color: red;
+}
+
+p.send-challenge {
+  position: absolute;
+  top: 80%;
+  left: 33.5%;
+  color: red;
+}
+
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+}
+.bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal {
+  position: relative;
+  background-color: white;
+  height: 80%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  overflow-y: auto;
+}
+.close-modal {
+  position: sticky;
+  left: 0;
+  top: 0;
+  margin-left: auto;
+  padding-bottom: auto;
+  font-size: xx-large;
+  background: none;
+  border: none;
+  color: purple;
+  cursor: pointer;
+  z-index: 1000;
+}
+h3.modal-header {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Send challenge form */
+.words-form {
+  display: flex;
+  flex-direction: column;
+}
+.challenge-word {
+  padding: 10px;
+  margin: 10px;
+}
+.submit-challenge {
+  margin: 15px;
+  height: 50px;
+  width: 200px;
+}
+.invisible-username {
+  display: none;
+}
+
+/* header */
+header {
+  height: 9vh;
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+.container {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  height: 100%;
+}
+.logo {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+h1.fake-logo {
+  height: 100%;
+}
+h1 a {
+  text-decoration: none;
+}
+.navigation {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navigation ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.navigation li {
+  text-decoration: underline;
+}
+a {
+  color: inherit;
+}
+li {
+  cursor: pointer;
+}

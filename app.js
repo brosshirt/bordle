@@ -7,20 +7,25 @@ const session = require('express-session');
 dotenv.config({ path: '.env' });
 
 
+
+
 mongoose.Promise = global.Promise;
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.on('error', (err) => {
   console.error(err);
-  console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
+  console.log('%s MongoDB connection error. Please make sure MongoDB is running.');
   process.exit();
 });
 
 const loginRouter = require("./routes/login.js");
 const createRouter = require("./routes/create.js");
 const gameRouter = require("./routes/game.js");
+const friendsRouter = require("./routes/friends.js");
+const homeRouter = require("./routes/home.js");
 
 
+app.locals = require('./library/locals.js')
 
 app.use(require('body-parser').urlencoded({ // this is needed so that req.body isn't undefined
     extended:true
@@ -33,14 +38,14 @@ app.use(session({
   saveUninitialized: false,
   rolling: true,
   cookie: {
-     expires: 3600 * 1000
+     expires: 10000000000000000000000000000
   }
 }));
 
 app.set('view engine', 'ejs'); 
 
-app.use('/public', express.static('public')); // this says where the css and js is 
-
+// app.use('/public', express.static('public')); // this says where the css and js is 
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.redirect('login');
@@ -49,7 +54,7 @@ app.get('/', (req, res) => {
 
 
 // this kicks people back to the login screen when their session expires
-let privilegedPages = ['/game']; // these are pages you must be signed in to access
+let privilegedPages = ['/game', '/friends']; // these are pages you must be signed in to access
 app.use('/', (req, res, next) => {
   if (!req.session.username && privilegedPages.includes(req.originalUrl)){
     return res.redirect('login');
@@ -57,8 +62,10 @@ app.use('/', (req, res, next) => {
   next();
 })
 
+app.use('/friends', friendsRouter);
 app.use('/game', gameRouter);
 app.use('/create', createRouter);
 app.use('/login', loginRouter);
+app.use('/home', homeRouter);
 
 app.listen(3000);

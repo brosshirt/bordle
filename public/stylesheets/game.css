@@ -1,10 +1,22 @@
 body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
   background-color: black;
 }
+/* body {
+  background-color: black;
+  color: white;
+  display: grid;
+  place-items: center;
+  margin: 0;
+} */
+/* 450 x 734  */
+/* width should be 61.3% of the height */
 .game-container {
-  height: 100vh; /* Just make sure that the width is 4.5x the height */
-  width: 450px;
-  margin: auto; /* this places the game in the center */
+  height: 91%;
+  width: 409.5px;
+  margin: auto;
 }
 .game-board {
   height: 75%;
@@ -73,4 +85,50 @@ body {
   place-items: center;
   border-radius: 7.5%;
   visibility: hidden;
+}
+
+/* header */
+header {
+  height: 9%;
+  background-color: white;
+}
+.container {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  height: 100%;
+}
+.logo {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+h1.fake-logo {
+  height: 100%;
+}
+h1 a {
+  text-decoration: none;
+}
+.navigation {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navigation ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.navigation li {
+  text-decoration: underline;
+}
+a {
+  color: inherit;
+}
+li {
+  cursor: pointer;
 }

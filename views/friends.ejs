@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/friends.css" />
+    <script src="javascripts/friends.js"></script>
+    <title><%=user.username%></title>
+  </head>
+  <body>
+    <form class="add-friend" action="/friends" method="POST">
+        <p><%=user.username%></p>
+        <input type="text" name="friend" id = "friend" required/>
+        <input type = "submit" class="add-button" value= "Send Friend Request"></button>
+    </form>
+    <p><%=locals.addFriendMsg%></p>
+
+
+    <h1>Friend Requests</h1>
+    <% for( let request of user.friendRequests) { %>
+        <div><%=request%>
+        <button class="accept" onclick = "handleFriendRequest('<%=request%>','accept')">Accept</button>
+        <button class="decline" onclick = "handleFriendRequest('<%=request%>','decline')">Decline</button>
+    </div>
+    <% } %>
+
+    <h1>Friends</h1>
+    <% for( let friend of user.friends) { %>
+        <div class = "target-words">
+          <span class = "friend"><%=friend%></span>
+
+          <button class="challenge" onclick = "challengeFriend('<%=friend%>')">Challenge</button>
+
+          <form action="/friends/challenge" method = "POST" class="words-form <%=friend%>">
+            <input type="text" name="opponent" value = "<%=friend%>" required> 
+            <input type="text" name = "word1" placeholder = "word one" required>
+            <input type="text" name = "word2" placeholder = "word two" required>
+            <input type="text" name = "word3" placeholder = "word three" required>
+            <input type="text" name = "word4" placeholder = "word four" required>
+            <input type="text" name = "word5" placeholder = "word five" required>
+            <input type = "submit" class="submit-challenge" value= "Send Challenge"></button>
+          </form>
+
+        </div>
+        <br>
+    <% } %>
+
+    <h1>Notifs</h1>
+    <% for( let notif of user.notifications) { %>
+        <div><%=notif.message%>
+    </div>
+    <% } %>
+
+    <h1>Challenges</h1>
+    <% for( let challenge of user.challenges) { %>
+        <div class = "target-words"><%=challenge.challenger%>
+          <button class="challenge" onclick = "acceptChallenge('<%=challenge.challenger%>')">Accept</button>
+          <form action="/home/challenge/accept" method = "POST" class="return-words <%=challenge.challenger%>">
+            <input type="text" name="opponent" value = "<%=challenge.challenger%>" required> 
+            <input type="text" name = "word1" placeholder = "word one" required>
+            <input type="text" name = "word2" placeholder = "word two" required>
+            <input type="text" name = "word3" placeholder = "word three" required>
+            <input type="text" name = "word4" placeholder = "word four" required>
+            <input type="text" name = "word5" placeholder = "word five" required>
+            <input type = "submit" class="submit-challenge" value= "Send Challenge"></button>
+          </form>
+    </div>
+    <% } %>
+
+    <h1>Active Matches</h1>
+    <% for( let match of user.activeMatches) { %>
+      <div class = "match">
+        <p><%=match.opponent%></p>
+        <% if (match.myTrials.length < 5) { %>
+          <button class="play-button" onclick = "renderGame('<%=match.opponent%>','<%=match.opponentSuppliedWords[match.myTrials.length]%>')">Play</button>
+        <% } %>
+        <p class = "match-state">You: <%=match.myTrials.length%>/5</p>
+        <p class = "match-state">Opponent: <%=match.opponentTrials.length%>/5</p>
+      </div>
+  <% } %>
+
+
+
+  </body>
+</html>

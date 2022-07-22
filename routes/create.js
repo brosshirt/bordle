@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const myLib = require('../library/myLib.js');
+const lib = require('../library/lib.js');
 const User = require('../models/User.js');
 
 router.get('/', (req, res) =>{
@@ -14,12 +14,10 @@ router.get('/', (req, res) =>{
     });
 })
 
+
 // create a user
 router.post('/', (req, res) =>{
-    // Validate inputs
-
-    // Valid email
-    // passwords match
+    // validate password match 
     if (req.body.password !== req.body.confirm){
         return res.render('create', {
             err: true,
@@ -27,20 +25,29 @@ router.post('/', (req, res) =>{
             fields: req.body
         });
     }
+
+    if (!lib.invalidChar(req.body.username)){
+        return res.render('create', {
+            err: true,
+            msg: 'Username must begin with letter',
+            fields: req.body
+        });
+    }
+
+
     
     let username = req.body.username;
     let email = req.body.email;
-    let hash = myLib.passwordHash(req.body.password);
-
+    let hash = lib.passwordHash(req.body.password);
 
     const user = new User({username: username, email: email, password: hash})
     user.save().then(() => { // on success, just log the user in
         req.session.username = username;
-        return res.redirect('game');
+        return res.redirect('home');
     }).catch(err => { // on fail 
         if (err.code === 11000){ // Then we have a duplicate value
             let dup = Object.keys(err.keyPattern)[0]; // The first value that is duplicate
-            dup = myLib.capitalizeFirstLetter(dup);
+            dup = lib.capitalizeFirstLetter(dup);
             return res.render('create', {
                 err: true,
                 msg: dup + ' taken',
