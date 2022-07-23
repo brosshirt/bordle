@@ -7,6 +7,8 @@ providers:
 entrypoints:
   https:
     address: :443
+  http:
+    address: :80
 
 certificatesresolvers:
   myresolver:

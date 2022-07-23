@@ -11,6 +11,3 @@ EXPOSE 3000
 
 # Start bordle server
 CMD ["node", "app.js"]
-
-
-
