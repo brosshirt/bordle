@@ -14,8 +14,8 @@ body {
 /* 450 x 734  */
 /* width should be 61.3% of the height */
 .game-container {
-  height: 91%;
-  width: 409.5px;
+  height: 91vh;
+  width: 55.783vh; /*409.5px;*/
   margin: auto;
 }
 .game-board {

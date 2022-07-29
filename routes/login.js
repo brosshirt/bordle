@@ -4,13 +4,17 @@ const User = require('../models/User.js');
 const lib = require('../library/lib.js');
 
 router.get('/', (req, res) =>{
-    req.session.username = undefined; // going back to the login page logs you out
     res.render('login', {
         fields: {
             username: '',
             password: ''
         }
     });
+})
+// get request to this urls sign the person out and then send them to /login
+router.get('/signout', (req,res) => {
+    req.session.username = undefined;
+    res.redirect('/');
 })
 
 router.post('/', (req, res) => {

@@ -19,7 +19,7 @@
             <li onclick="howToPlay()">How It's Scored</li>
             <li onclick="renderGame('normal')">Play Normal</li>
             <li onclick="renderGame('god')">Play God</li>
-            <li><a href="/login">Sign Out</a></li>
+            <li><a href="/login/signout">Sign Out</a></li>
           </ul>
         </div>
       </div>
@@ -61,7 +61,7 @@
       <div class="block past-matches">
           <h4>Past Matches</h4>
           <ul class="past-games-list">
-          <% for( let i = 0; i < user.pastMatches.length && i<8; i++ ) { %>
+          <% for( let i = user.pastMatches.length-1; i > user.pastMatches.length - 8 && i>=0; i--) { %>
             <li class="past-games-list">
               <% if (user.pastMatches[i].result === 'win') { %>
                 <span class="result" style = "color:green;">W vs <%=user.pastMatches[i].opponent%></span>
