@@ -237,8 +237,6 @@ function showFriendList(userString){
     
     let user = JSON.parse(userString);
 
-    
-
     let friends = user.friends;
 
     modal.innerHTML = `
@@ -248,13 +246,12 @@ function showFriendList(userString){
     </ul>`;
 
     let ul = document.querySelector('ul.modal-friend-list');
-
+    console.log(friends.length);
     for (friend of friends){
         ul.innerHTML += `<li class = "modal-list ${friend}">${friend}</li>`; 
-        console.log('this runs')
-        if (!activeGame(user, friend) && !isChallenge(user, friend)){
-            console.log('this does not run');
-            let li = document.querySelector(`li.${friend}`);
+        console.log(ul.innerHTML);
+         if (!activeGame(user, friend) && !isChallenge(user, friend)){
+            let li = document.querySelector(`li.${friend}`); // this returns null on the 6th iteration
             li.innerHTML += `<button class="modal-challenge" onclick = "challengeFriend('${friend}')">Challenge Friend</button>`
         }
     }
