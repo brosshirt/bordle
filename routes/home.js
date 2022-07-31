@@ -157,7 +157,7 @@ router.post('/challenge/accept', (req,res) => {
 
             // so we need to access the element in accepter.challenges where the username is equal to challengerUsername
             let challengerSuppliedWords = lib.getChallenge(accepter.challenges, challengerUsername).targetWords;
-            let accepterSuppliedWords = [req.body.word1, req.body.word2, req.body.word3, req.body.word4, req.body.word5];
+            let accepterSuppliedWords = [req.body.word1.toLowerCase(), req.body.word2.toLowerCase(), req.body.word3.toLowerCase(), req.body.word4.toLowerCase(), req.body.word5.toLowerCase()];
 
 
             challenger.pendingChallenges = lib.removePendingChallenge(challenger.pendingChallenges, accepterUsername);
@@ -193,7 +193,7 @@ router.post('/challenge', (req,res) => {
     let challengerUsername = req.session.username;
     let receiverUsername = req.body.opponent;
 
-    let targetWords = [req.body.word1, req.body.word2, req.body.word3, req.body.word4, req.body.word5]
+    let targetWords = [req.body.word1.toLowerCase(), req.body.word2.toLowerCase(), req.body.word3.toLowerCase(), req.body.word4.toLowerCase(), req.body.word5.toLowerCase()]
 
     lib.getUser(challengerUsername).then(challenger => {
         lib.removePendingChallenge(challenger.pendingChallenges, receiverUsername);

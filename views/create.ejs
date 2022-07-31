@@ -15,7 +15,7 @@
         <p>Email</p>
         <input type="email" name="email" id = "email" value = "<%=locals.fields.email%>" required/>
         <p>Username</p>
-        <input type="text" name="username" value = "<%=locals.fields.username%>" pattern="[A-Za-z0-9]+" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('No Spaces Please')"required/>
+        <input type="text" name="username" value = "<%=locals.fields.username%>" pattern="[A-Za-z0-9]+" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Letters and Numbers Only')"required/>
         <p>Password</p>
         <input type="password" name="password" required/>
         <p>Confirm Password</p>
