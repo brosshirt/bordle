@@ -109,6 +109,16 @@ h1.fake-logo {
 }
 h1 a {
   text-decoration: none;
+  color: black;
+  font-size: 33px;
+  font-family: sans-serif;
+}
+span.bigB {
+  font-size: 30px;
+  vertical-align: center;
+}
+span.ordle {
+  vertical-align: top;
 }
 .navigation {
   height: 100%;
