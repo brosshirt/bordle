@@ -31,7 +31,7 @@
             <form class="add-friend" action="/home" method="POST">
                 <input type="text" name="friend" class = "add-friend input-text" placeholder = "Username" required/>
                 <input type = "submit" class="add-button" value= "Send Friend Request"></button>
-                <p class = "add-friend error"><%=locals.addFriendMsg%></p>
+                <p class = "add-friend error"><%-locals.addFriendMsg%></p>
             </form>
         </div>
         <div class="friend-requests">
@@ -51,12 +51,11 @@
                 <span class="myRemaining"><%=5 - user.activeMatches[i].myTrials.length%> to play</span>
                 <span class="oppRemaining"><%=5 - user.activeMatches[i].opponentTrials.length%> to play</span>
                 <% if (user.activeMatches[i].myTrials.length < 5) { %>
-                <button class="playChallenge" onclick = "renderGame('<%=user.activeMatches[i].opponent%>','<%=user.activeMatches[i].opponentSuppliedWords[user.activeMatches[i].myTrials.length]%>')">Play</button>
+                <button class="playChallenge" onclick = "renderGame('<%=user.activeMatches[i].opponent%>','<%=JSON.stringify(user.activeMatches[i])%>')">Play</button>
                 <% } %>
               </li>
             <% } %>
           </ul>
-
       </div>
       <div class="block past-matches">
           <h4>Past Matches</h4>
@@ -119,13 +118,10 @@
             <span class="normal-history" onclick = "seeGames('Normal', '<%=JSON.stringify(user.normalTrials)%>')">See all normal games</span>
             <span class="god-history" onclick = "seeGames('God', '<%=JSON.stringify(user.godTrials)%>')">See all god games</span>
           </div>
-
-
       </div>
     </div>
     <div class="modal-bg">
       <div class="modal">
-        
       </div>
     </div>
   </body>

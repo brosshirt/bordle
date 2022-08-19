@@ -11,7 +11,6 @@ router.get('/', (req, res) =>{
 // add trial to database
 router.post('/', (req, res) => {
     // the user is the one who made the trial, the opponent is the one who needs to be updated about it
-   
     lib.getUser(req.session.username).then(user => {
         if (req.body.opponent && req.body.opponent !== 'normal' && req.body.opponent !== 'god'){
             lib.getUser(req.body.opponent).then(opponent => {

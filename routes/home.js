@@ -48,6 +48,7 @@ router.post('/', (req, res) =>{
                     addFriendMsg = 'You and ' + receiverUsername + ' are already friends'
                 }
                 else{
+                    addFriendMsg = `<span style = "color:green;">Sent!</span>`;
                     receiver.friendRequests.push(senderUsername);
                     receiver.notifications.push({
                         type: 'Friend Request - Received',
