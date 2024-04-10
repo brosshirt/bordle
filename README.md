@@ -1,1 +1,1 @@
-# I'm making this readme just so that I can see whether git push works on github
+# Bordle was an app that let you play wordle against your friends on bordle.gg, it's no longer hosted because I don't want to pay AWS anymore
